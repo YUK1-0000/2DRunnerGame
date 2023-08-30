@@ -1,0 +1,53 @@
+[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://bljut77snf3l2"]
+
+[ext_resource type="Texture2D" uid="uid://bipelc6tlc46t" path="res://Assets/Rocky Roads/Deco/sun.png" id="1_bv4cp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l382r"]
+atlas = ExtResource("1_bv4cp")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n2vsa"]
+atlas = ExtResource("1_bv4cp")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4dt1"]
+atlas = ExtResource("1_bv4cp")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y0f5o"]
+atlas = ExtResource("1_bv4cp")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vifnf"]
+atlas = ExtResource("1_bv4cp")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vkhyb"]
+atlas = ExtResource("1_bv4cp")
+region = Rect2(160, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l382r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n2vsa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l4dt1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y0f5o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vifnf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vkhyb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]

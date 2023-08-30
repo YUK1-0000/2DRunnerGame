@@ -1,0 +1,235 @@
+[gd_scene load_steps=21 format=3 uid="uid://bkrv2b6mar7nm"]
+
+[ext_resource type="PackedScene" uid="uid://b0uwj3rv72kkv" path="res://terrain_template.tscn" id="1_yuydd"]
+[ext_resource type="PackedScene" uid="uid://cc3srqmsn2thc" path="res://player.tscn" id="2_1m1li"]
+[ext_resource type="Script" path="res://main.gd" id="2_bbbll"]
+[ext_resource type="Script" path="res://camera.gd" id="3_kjqs5"]
+[ext_resource type="PackedScene" uid="uid://dyxyq03vecd4j" path="res://TerrainScene/flat_terrain.tscn" id="3_lsk0f"]
+[ext_resource type="PackedScene" uid="uid://cjcpbdmgh76sf" path="res://death_zone.tscn" id="4_b5cv7"]
+[ext_resource type="PackedScene" uid="uid://ngdn8v7lw8sr" path="res://TerrainScene/terrain_a.tscn" id="4_h8gnd"]
+[ext_resource type="PackedScene" uid="uid://5pkkuod2vf1c" path="res://TerrainScene/terrain_b.tscn" id="5_6jhs7"]
+[ext_resource type="PackedScene" uid="uid://xwj0ps0o8j3t" path="res://TerrainScene/terrain_c.tscn" id="6_xxx6y"]
+[ext_resource type="PackedScene" uid="uid://rco4jmhbgf5p" path="res://TerrainScene/terrain_d.tscn" id="7_7t2gu"]
+[ext_resource type="PackedScene" uid="uid://cjsu74pwi2pv5" path="res://TerrainScene/terrain_e.tscn" id="8_niafl"]
+[ext_resource type="PackedScene" uid="uid://cjfmwg027skuw" path="res://TerrainScene/terrain_f.tscn" id="9_wlnpx"]
+[ext_resource type="PackedScene" uid="uid://7yf5qod4c5yp" path="res://TerrainScene/terrain_g.tscn" id="10_tmgj4"]
+[ext_resource type="SpriteFrames" uid="uid://bljut77snf3l2" path="res://Resorces/sprite_frames_sun.tres" id="12_s1unf"]
+[ext_resource type="Texture2D" uid="uid://b2cdr2nb4bere" path="res://Assets/Rocky Roads/Deco/clouds.png" id="13_71qvb"]
+[ext_resource type="Texture2D" uid="uid://ckpdk0dbxy5ry" path="res://Assets/Rocky Roads/Backgrounds/trees.png" id="14_2lgvs"]
+[ext_resource type="SpriteFrames" uid="uid://cv0dyneu4dk41" path="res://Resorces/sprite_frames_water.tres" id="15_tc3cj"]
+[ext_resource type="AudioStream" uid="uid://cosqg1hby143w" path="res://Assets/SoundEffects/start_game_sound.wav" id="18_4rdiq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eesrm"]
+atlas = ExtResource("13_71qvb")
+region = Rect2(10, 23, 38, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_suvtq"]
+atlas = ExtResource("13_71qvb")
+region = Rect2(3, 4, 49, 12)
+
+[node name="Main" instance=ExtResource("1_yuydd")]
+script = ExtResource("2_bbbll")
+flat_terrain = ExtResource("3_lsk0f")
+a = ExtResource("4_h8gnd")
+b = ExtResource("5_6jhs7")
+c = ExtResource("6_xxx6y")
+d = ExtResource("7_7t2gu")
+e = ExtResource("8_niafl")
+f = ExtResource("9_wlnpx")
+g = ExtResource("10_tmgj4")
+
+[node name="TileMap" parent="." index="0"]
+layer_0/tile_data = PackedInt32Array(524288, 196608, 1, 524289, 196608, 1, 524290, 262144, 1, 524291, 262144, 1, 524292, 262144, 1, 524293, 196608, 1, 524294, 196608, 1, 524295, 196608, 1, 524296, 262144, 1, 524297, 262144, 1, 524298, 196608, 1, 524299, 196608, 1, 524300, 196608, 1, 524301, 262144, 1, 524302, 262144, 1, 524303, 262144, 1, 524304, 262144, 1, 524305, 196608, 1, 524306, 196608, 1, 524307, 196608, 1, 524308, 262144, 1, 524309, 196608, 1, 589845, 327680, 4, 589844, 327680, 4, 589843, 131072, 4, 589842, 262144, 4, 589841, 327680, 4, 589840, 131072, 4, 589839, 327680, 4, 589838, 262144, 4, 589837, 262144, 4, 589836, 327680, 4, 589835, 327680, 4, 589834, 327680, 4, 589833, 327680, 4, 589832, 196608, 4, 589831, 262144, 4, 589830, 131072, 4, 589829, 262144, 4, 589828, 262144, 4, 589827, 196608, 4, 589826, 131072, 4, 589825, 131072, 4, 589824, 327680, 4, 655359, 65536, 4, 589823, 131072, 1)
+
+[node name="ConnectionPoint" parent="." index="1"]
+position = Vector2(352, 0)
+
+[node name="Player" parent="." index="2" instance=ExtResource("2_1m1li")]
+unique_name_in_owner = true
+position = Vector2(64, 128)
+
+[node name="Camera" type="Camera2D" parent="." index="3"]
+unique_name_in_owner = true
+position = Vector2(128, 72)
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
+script = ExtResource("3_kjqs5")
+metadata/_edit_group_ = true
+
+[node name="DeathZone" parent="Camera" index="0" instance=ExtResource("4_b5cv7")]
+position = Vector2(112, 0)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Camera/DeathZone" index="0"]
+position = Vector2(-24, 80)
+polygon = PackedVector2Array(-240, -248, -272, -248, -272, 24, 48, 24, 48, -8, -240, -8)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="4"]
+
+[node name="HUD" type="MarginContainer" parent="CanvasLayer" index="0"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartMenu" type="CenterContainer" parent="CanvasLayer/HUD" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/StartMenu" index="0"]
+layout_mode = 2
+
+[node name="StartButton" type="Button" parent="CanvasLayer/HUD/StartMenu/VBoxContainer" index="0"]
+unique_name_in_owner = true
+process_mode = 3
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+text = "Start
+"
+
+[node name="QuitButton" type="Button" parent="CanvasLayer/HUD/StartMenu/VBoxContainer" index="1"]
+unique_name_in_owner = true
+process_mode = 3
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+text = "Quit"
+
+[node name="InfoHUD" type="CenterContainer" parent="CanvasLayer/HUD" index="1"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 0
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HUD/InfoHUD" index="0"]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="IntTimeLabel" type="Label" parent="CanvasLayer/HUD/InfoHUD/HBoxContainer" index="0"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="FloatTimeLabel" type="Label" parent="CanvasLayer/HUD/InfoHUD/HBoxContainer" index="1"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+vertical_alignment = 1
+
+[node name="GameOverMenu" type="CenterContainer" parent="CanvasLayer/HUD" index="2"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/GameOverMenu" index="0"]
+layout_mode = 2
+
+[node name="ResultLabel" type="Label" parent="CanvasLayer/HUD/GameOverMenu/VBoxContainer" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ContinueButton" type="Button" parent="CanvasLayer/HUD/GameOverMenu/VBoxContainer" index="1"]
+unique_name_in_owner = true
+process_mode = 3
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+text = "Continue"
+
+[node name="Background" type="ParallaxBackground" parent="CanvasLayer" index="1"]
+offset = Vector2(240, 135)
+transform = Transform2D(1, 0, 0, 1, 240, 135)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/Background" index="0"]
+process_mode = 3
+position = Vector2(0, -119)
+sprite_frames = ExtResource("12_s1unf")
+autoplay = "default"
+frame_progress = 0.335234
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="CanvasLayer/Background" index="1"]
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(256, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Background/ParallaxLayer" index="0"]
+position = Vector2(-136, -123)
+texture = SubResource("AtlasTexture_eesrm")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="CanvasLayer/Background" index="2"]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(256, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Background/ParallaxLayer2" index="0"]
+position = Vector2(-60, -83)
+texture = SubResource("AtlasTexture_suvtq")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="CanvasLayer/Background" index="3"]
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(256, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Background/ParallaxLayer4" index="0"]
+position = Vector2(-112, -55)
+texture = ExtResource("14_2lgvs")
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="CanvasLayer/Background" index="4"]
+motion_scale = Vector2(0.8, 0.8)
+motion_mirroring = Vector2(256, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/Background/ParallaxLayer5" index="0"]
+position = Vector2(-224, -7)
+sprite_frames = ExtResource("15_tc3cj")
+autoplay = "default"
+frame_progress = 0.26204
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="CanvasLayer/Background/ParallaxLayer5" index="1"]
+position = Vector2(-192, -7)
+sprite_frames = ExtResource("15_tc3cj")
+autoplay = "default"
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="CanvasLayer/Background/ParallaxLayer5" index="2"]
+position = Vector2(-160, -7)
+sprite_frames = ExtResource("15_tc3cj")
+autoplay = "default"
+frame_progress = 0.012445
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="CanvasLayer/Background/ParallaxLayer5" index="3"]
+position = Vector2(-128, -7)
+sprite_frames = ExtResource("15_tc3cj")
+autoplay = "default"
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="CanvasLayer/Background/ParallaxLayer5" index="4"]
+position = Vector2(-96, -7)
+sprite_frames = ExtResource("15_tc3cj")
+autoplay = "default"
+frame_progress = 0.816932
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="CanvasLayer/Background/ParallaxLayer5" index="5"]
+position = Vector2(-64, -7)
+sprite_frames = ExtResource("15_tc3cj")
+autoplay = "default"
+
+[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="CanvasLayer/Background/ParallaxLayer5" index="6"]
+position = Vector2(-32, -7)
+sprite_frames = ExtResource("15_tc3cj")
+autoplay = "default"
+frame_progress = 0.581833
+
+[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="CanvasLayer/Background/ParallaxLayer5" index="7"]
+position = Vector2(0, -7)
+sprite_frames = ExtResource("15_tc3cj")
+autoplay = "default"
+
+[node name="StartGameSound" type="AudioStreamPlayer" parent="." index="5"]
+stream = ExtResource("18_4rdiq")
+
+[node name="Terrain" type="Node2D" parent="." index="6"]
+
+[connection signal="pressed" from="CanvasLayer/HUD/StartMenu/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/HUD/StartMenu/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/HUD/GameOverMenu/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]

@@ -1,0 +1,10 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://b7vyx503m1ql5"]
+
+[ext_resource type="Texture2D" uid="uid://c1agenvy0dshi" path="res://Assets/Treasure Hunters/Wood and Paper UI/Yellow Button/1_pressed.png" id="1_ca2ww"]
+
+[resource]
+texture = ExtResource("1_ca2ww")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0

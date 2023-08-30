@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://cc3srqmsn2thc"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_bb0oc"]
+[ext_resource type="SpriteFrames" uid="uid://dyido7a4ugh0l" path="res://Resorces/sprite_frames_chicken.tres" id="2_vgwew"]
+[ext_resource type="AudioStream" uid="uid://dqtd8e6r01gu" path="res://Assets/SoundEffects/jump_sound.wav" id="3_lt6gt"]
+[ext_resource type="AudioStream" uid="uid://b60u588lsoxxf" path="res://Assets/SoundEffects/air_jump_sound.wav" id="4_p7813"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n5nqp"]
+size = Vector2(8, 8)
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
+floor_constant_speed = true
+script = ExtResource("1_bb0oc")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -16)
+sprite_frames = ExtResource("2_vgwew")
+animation = &"idle"
+frame_progress = 0.867585
+flip_h = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(8, 0, 8, -12, -5, -12, -5, 0)
+
+[node name="CoyoteJumpTimer" type="Timer" parent="."]
+wait_time = 0.06
+one_shot = true
+
+[node name="DeathZoneDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZoneDetector"]
+position = Vector2(12, -20)
+shape = SubResource("RectangleShape2D_n5nqp")
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_lt6gt")
+
+[node name="AirJumpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_p7813")
+
+[connection signal="area_entered" from="DeathZoneDetector" to="." method="_on_death_zone_detector_area_entered"]

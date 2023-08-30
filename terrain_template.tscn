@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0uwj3rv72kkv"]
+
+[ext_resource type="PackedScene" uid="uid://b1voteaetxux" path="res://tile_map.tscn" id="2_ndxxq"]
+
+[node name="TerrainTemplate" type="Node2D"]
+
+[node name="TileMap" parent="." instance=ExtResource("2_ndxxq")]
+layer_0/name = "1"
+layer_0/tile_data = PackedInt32Array(917504, 262144, 0, 983040, 262144, 3, 1048576, 65536, 10, 917505, 196608, 8, 983041, 786432, 5, 1048577, 917504, 2, 917506, 196608, 6, 983042, 655360, 9, 1048578, 131072, 3, 1048579, 65536, 2, 1048580, 589824, 0, 1048581, 262144, 10, 1048582, 983040, 2, 1048583, 393216, 3, 983047, 393216, 8, 983046, 393216, 3, 983045, 393216, 4, 983044, 1114112, 2, 983043, 983040, 2, 917507, 262144, 6, 917508, 196608, 0, 917509, 589824, 4, 917510, 65536, 8, 917511, 262144, 6)
+layer_1/name = "2"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = 0
+layer_1/tile_data = PackedInt32Array()
+
+[node name="ConnectionPoint" type="Marker2D" parent="."]
+position = Vector2(128, 0)

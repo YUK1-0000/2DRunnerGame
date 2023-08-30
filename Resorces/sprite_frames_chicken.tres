@@ -1,0 +1,96 @@
+[gd_resource type="SpriteFrames" load_steps=12 format=3 uid="uid://dyido7a4ugh0l"]
+
+[ext_resource type="Texture2D" uid="uid://bbqupv5pn7t7w" path="res://Assets/Rocky Roads/Enemies/chicken.png" id="1_pphxl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1hvdo"]
+atlas = ExtResource("1_pphxl")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ns3cl"]
+atlas = ExtResource("1_pphxl")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hmk7"]
+atlas = ExtResource("1_pphxl")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybnoo"]
+atlas = ExtResource("1_pphxl")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mud50"]
+atlas = ExtResource("1_pphxl")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ardkk"]
+atlas = ExtResource("1_pphxl")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1akv"]
+atlas = ExtResource("1_pphxl")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxh26"]
+atlas = ExtResource("1_pphxl")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0r2pk"]
+atlas = ExtResource("1_pphxl")
+region = Rect2(160, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h283v"]
+atlas = ExtResource("1_pphxl")
+region = Rect2(192, 32, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1hvdo")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ns3cl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8hmk7")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ybnoo")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mud50")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ardkk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g1akv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cxh26")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0r2pk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h283v")
+}],
+"loop": true,
+"name": &"run",
+"speed": 12.0
+}]

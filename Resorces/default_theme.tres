@@ -1,0 +1,23 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://7masco7be0m6"]
+
+[ext_resource type="FontFile" uid="uid://b8v4cddxlo5y5" path="res://Assets/Fonts/PixelAE-Bold.ttf" id="1_0nmyj"]
+[ext_resource type="StyleBox" uid="uid://b3bjigi8yd0f6" path="res://Resorces/yellow_box_outline.tres" id="2_7r1w5"]
+[ext_resource type="StyleBox" uid="uid://b7vyx503m1ql5" path="res://Resorces/yellow_box.tres" id="3_lryc7"]
+
+[resource]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_focus_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0.902344, 0.523438, 0.378906, 1)
+Button/constants/outline_size = 3
+Button/font_sizes/font_size = 8
+Button/fonts/font = ExtResource("1_0nmyj")
+Button/styles/focus = ExtResource("2_7r1w5")
+Button/styles/hover = ExtResource("2_7r1w5")
+Button/styles/normal = ExtResource("3_lryc7")
+Button/styles/pressed = ExtResource("3_lryc7")
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 3
+Label/font_sizes/font_size = 8
+Label/fonts/font = ExtResource("1_0nmyj")
