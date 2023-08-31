@@ -1,18 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://bkrv2b6mar7nm"]
+[gd_scene load_steps=13 format=3 uid="uid://bkrv2b6mar7nm"]
 
 [ext_resource type="PackedScene" uid="uid://b0uwj3rv72kkv" path="res://terrain_template.tscn" id="1_yuydd"]
 [ext_resource type="PackedScene" uid="uid://cc3srqmsn2thc" path="res://player.tscn" id="2_1m1li"]
 [ext_resource type="Script" path="res://main.gd" id="2_bbbll"]
 [ext_resource type="Script" path="res://camera.gd" id="3_kjqs5"]
-[ext_resource type="PackedScene" uid="uid://dyxyq03vecd4j" path="res://TerrainScene/flat_terrain.tscn" id="3_lsk0f"]
 [ext_resource type="PackedScene" uid="uid://cjcpbdmgh76sf" path="res://death_zone.tscn" id="4_b5cv7"]
-[ext_resource type="PackedScene" uid="uid://ngdn8v7lw8sr" path="res://TerrainScene/terrain_a.tscn" id="4_h8gnd"]
-[ext_resource type="PackedScene" uid="uid://5pkkuod2vf1c" path="res://TerrainScene/terrain_b.tscn" id="5_6jhs7"]
-[ext_resource type="PackedScene" uid="uid://xwj0ps0o8j3t" path="res://TerrainScene/terrain_c.tscn" id="6_xxx6y"]
-[ext_resource type="PackedScene" uid="uid://rco4jmhbgf5p" path="res://TerrainScene/terrain_d.tscn" id="7_7t2gu"]
-[ext_resource type="PackedScene" uid="uid://cjsu74pwi2pv5" path="res://TerrainScene/terrain_e.tscn" id="8_niafl"]
-[ext_resource type="PackedScene" uid="uid://cjfmwg027skuw" path="res://TerrainScene/terrain_f.tscn" id="9_wlnpx"]
-[ext_resource type="PackedScene" uid="uid://7yf5qod4c5yp" path="res://TerrainScene/terrain_g.tscn" id="10_tmgj4"]
 [ext_resource type="SpriteFrames" uid="uid://bljut77snf3l2" path="res://Resorces/sprite_frames_sun.tres" id="12_s1unf"]
 [ext_resource type="Texture2D" uid="uid://b2cdr2nb4bere" path="res://Assets/Rocky Roads/Deco/clouds.png" id="13_71qvb"]
 [ext_resource type="Texture2D" uid="uid://ckpdk0dbxy5ry" path="res://Assets/Rocky Roads/Backgrounds/trees.png" id="14_2lgvs"]
@@ -29,14 +21,6 @@ region = Rect2(3, 4, 49, 12)
 
 [node name="Main" instance=ExtResource("1_yuydd")]
 script = ExtResource("2_bbbll")
-flat_terrain = ExtResource("3_lsk0f")
-a = ExtResource("4_h8gnd")
-b = ExtResource("5_6jhs7")
-c = ExtResource("6_xxx6y")
-d = ExtResource("7_7t2gu")
-e = ExtResource("8_niafl")
-f = ExtResource("9_wlnpx")
-g = ExtResource("10_tmgj4")
 
 [node name="TileMap" parent="." index="0"]
 layer_0/tile_data = PackedInt32Array(524288, 196608, 1, 524289, 196608, 1, 524290, 262144, 1, 524291, 262144, 1, 524292, 262144, 1, 524293, 196608, 1, 524294, 196608, 1, 524295, 196608, 1, 524296, 262144, 1, 524297, 262144, 1, 524298, 196608, 1, 524299, 196608, 1, 524300, 196608, 1, 524301, 262144, 1, 524302, 262144, 1, 524303, 262144, 1, 524304, 262144, 1, 524305, 196608, 1, 524306, 196608, 1, 524307, 196608, 1, 524308, 262144, 1, 524309, 196608, 1, 589845, 327680, 4, 589844, 327680, 4, 589843, 131072, 4, 589842, 262144, 4, 589841, 327680, 4, 589840, 131072, 4, 589839, 327680, 4, 589838, 262144, 4, 589837, 262144, 4, 589836, 327680, 4, 589835, 327680, 4, 589834, 327680, 4, 589833, 327680, 4, 589832, 196608, 4, 589831, 262144, 4, 589830, 131072, 4, 589829, 262144, 4, 589828, 262144, 4, 589827, 196608, 4, 589826, 131072, 4, 589825, 131072, 4, 589824, 327680, 4, 655359, 65536, 4, 589823, 131072, 1)

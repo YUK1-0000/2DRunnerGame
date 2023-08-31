@@ -1,16 +1,5 @@
 extends Node2D
 
-@export_group("Terrains")
-@export var flat_terrain: PackedScene
-@export var a: PackedScene
-@export var b: PackedScene
-@export var c: PackedScene
-@export var d: PackedScene
-@export var e: PackedScene
-@export var f: PackedScene
-@export var g: PackedScene
-
-@onready var terrains := [flat_terrain, a, b, c, d, e, f, g]
 @onready var connection_point: Marker2D = $ConnectionPoint
 @onready var player: CharacterBody2D = %Player
 @onready var camera: Camera2D = %Camera
@@ -25,10 +14,13 @@ extends Node2D
 @onready var continue_button: Button = %ContinueButton
 @onready var start_game_sound = $StartGameSound
 
+var terrains: Array
 var elapsed_time:= 0.
 var run_time:= 0.
 
+
 func _ready() -> void:
+	make_terrains_array()
 	RenderingServer.set_default_clear_color(Color8(115, 205, 216, 255))
 	Events.game_over.connect(game_over)
 	Events.game_reset.connect(game_reset)
@@ -45,6 +37,13 @@ func _process(_delta: float) -> void:
 		ProjectSettings.get_setting("display/window/size/viewport_width")
 	):
 		set_terrain()
+
+
+func make_terrains_array() -> void:
+	var dir = DirAccess.open("res://TerrainScene")
+	dir.list_dir_begin()
+	for file_name in dir.get_files():
+		terrains.append(load("res://TerrainScene/%s" % file_name))
 
 
 func set_terrain(index: int = randi_range(1, len(terrains) - 1)) -> void:
@@ -87,7 +86,7 @@ func game_reset() -> void:
 	connection_point.position = Vector2(
 		ProjectSettings.get_setting("display/window/size/viewport_width"), 
 		0
-		)
+	)
 	for i in get_node("Terrain").get_children(): i.queue_free()
 	start_menu.show()
 	start_button.grab_focus()

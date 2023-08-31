@@ -62,7 +62,7 @@ func handle_jump() -> void:
 			velocity.y = maxf(velocity.y, JUMP_VELOCITY / 4)
 
 
-func handle_acceleration(delta: float) -> void:
+func handle_acceleration(_delta: float) -> void:
 	if not auto_run: return
 	velocity.x = (
 		camera.velocity.x
@@ -73,7 +73,7 @@ func handle_acceleration(delta: float) -> void:
 		) 
 		* 3
 	)
-	
+
 
 func update_animations() -> void:
 	if velocity.x:
