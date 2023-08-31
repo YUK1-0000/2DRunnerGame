@@ -1,0 +1,14 @@
+[gd_resource type="StyleBoxTexture" load_steps=3 format=3 uid="uid://bhgqehdflwerh"]
+
+[ext_resource type="Texture2D" uid="uid://r2v32rfl3uik" path="res://Assets/Rocky Roads/UI/buttons.png" id="1_iaw66"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xheoe"]
+atlas = ExtResource("1_iaw66")
+region = Rect2(3, 20, 10, 11)
+
+[resource]
+texture = SubResource("AtlasTexture_xheoe")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 5.0
