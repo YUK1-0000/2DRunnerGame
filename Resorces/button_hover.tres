@@ -4,7 +4,7 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nm65d"]
 atlas = ExtResource("1_swg2t")
-region = Rect2(3, 20, 10, 11)
+region = Rect2(3, 4, 10, 11)
 
 [resource]
 texture = SubResource("AtlasTexture_nm65d")

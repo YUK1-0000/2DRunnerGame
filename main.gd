@@ -15,12 +15,13 @@ extends Node2D
 @onready var start_game_sound = $StartGameSound
 
 var terrains: Array
+var tile_sets: Array
 var elapsed_time:= 0.
 var run_time:= 0.
 
-
 func _ready() -> void:
-	make_terrains_array()
+	dir_contents("res://TerrainScene/", terrains)
+	dir_contents("res://Resorces/TileSets/", tile_sets)
 	RenderingServer.set_default_clear_color(Color8(115, 205, 216, 255))
 	Events.game_over.connect(game_over)
 	Events.game_reset.connect(game_reset)
@@ -28,7 +29,7 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	run_time = (Time.get_ticks_msec() - elapsed_time) / 1000
+	run_time = (Time.get_ticks_msec() - elapsed_time) / 1000 * int(player.auto_run)
 	int_time_label.text = str(int(run_time))
 	float_time_label.text = str("%0.2f" % (run_time - int(run_time))).lstrip("0")
 	
@@ -39,18 +40,12 @@ func _process(_delta: float) -> void:
 		set_terrain()
 
 
-func make_terrains_array() -> void:
-	var dir = DirAccess.open("res://TerrainScene")
-	dir.list_dir_begin()
-	for file_name in dir.get_files():
-		terrains.append(load("res://TerrainScene/%s" % file_name))
-
-
 func set_terrain(index: int = randi_range(1, len(terrains) - 1)) -> void:
-	var temp = terrains[index].instantiate()
-	temp.position = connection_point.position
-	connection_point.position += temp.get_node("ConnectionPoint").position
-	get_node("Terrain").add_child(temp)
+	var tile_map_inst: Node2D = terrains[index].instantiate()
+	tile_map_inst.position = connection_point.position
+	tile_map_inst.get_node("TileMap").tile_set = tile_sets[int(run_time / 10) % len(tile_sets)]
+	connection_point.position += tile_map_inst.get_node("ConnectionPoint").position
+	get_node("Terrain").add_child(tile_map_inst)
 
 
 func _on_start_button_pressed() -> void:
@@ -90,3 +85,10 @@ func game_reset() -> void:
 	for i in get_node("Terrain").get_children(): i.queue_free()
 	start_menu.show()
 	start_button.grab_focus()
+
+
+func dir_contents(path: String, array: Array) -> void:
+	var dir: DirAccess = DirAccess.open(path)
+	dir.list_dir_begin()
+	for file_name in dir.get_files():
+		array.append(load(path + file_name))
