@@ -70,7 +70,6 @@ func game_over() -> void:
 	get_tree().paused = true
 	game_over_menu.show()
 	await get_tree().create_timer(0.5).timeout
-	continue_button.grab_focus()
 
 
 func game_reset() -> void:
@@ -84,7 +83,6 @@ func game_reset() -> void:
 	)
 	for i in get_node("Terrain").get_children(): i.queue_free()
 	start_menu.show()
-	start_button.grab_focus()
 
 
 func dir_contents(path: String, array: Array) -> void:
