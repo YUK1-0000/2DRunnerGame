@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://b0uwj3rv72kkv" path="res://terrain_template.tscn" id="1_yuydd"]
 [ext_resource type="PackedScene" uid="uid://cc3srqmsn2thc" path="res://player.tscn" id="2_1m1li"]
-[ext_resource type="Script" path="res://main.gd" id="2_bbbll"]
-[ext_resource type="Script" path="res://camera.gd" id="3_kjqs5"]
+[ext_resource type="Script" uid="uid://cey5qtwj3rso8" path="res://main.gd" id="2_bbbll"]
+[ext_resource type="Script" uid="uid://b8lylob2ety7h" path="res://camera.gd" id="3_kjqs5"]
 [ext_resource type="PackedScene" uid="uid://cjcpbdmgh76sf" path="res://death_zone.tscn" id="4_b5cv7"]
 [ext_resource type="SpriteFrames" uid="uid://bljut77snf3l2" path="res://Resorces/sprite_frames_sun.tres" id="12_s1unf"]
 [ext_resource type="Texture2D" uid="uid://b2cdr2nb4bere" path="res://Assets/Rocky Roads/Deco/clouds.png" id="13_71qvb"]
